@@ -1,0 +1,26 @@
+User : <%= session[:user_id]%>
+<h1> Product list </h1>
+<table border="" style="width:600px;">
+	<tr>
+		<th></th>
+		<th>Name</th>
+	</tr>
+	<%= form_for :catalog ,:url=> {:action => "show"}, :remote => true do |f| %>
+	<% @product.each do |product| %>
+	<tr>
+		<% @cart=Cart.find_by_product_id_and_buyer_id(product.id,session[:user_id]) %>
+		  <% if @cart %>
+		     <td><%= check_box_tag "catalog[product_ids][]", product.id, true %></td>
+		<!-- <%= {:onClick =>"$.ajax(url:'/buyer/show'),:data =>'product_id'+value"}%> -->
+		  <% else %>
+		     <td><%= check_box_tag "catalog[product_ids][]", product.id, false %></td>
+		  <% end %>
+		<td><%= product.name %></td>
+	</tr>
+	<% end %>
+	<%= f.submit "add to cart"%>
+	<% end %>
+</table>
+
+<div id="show_catalog"></div>
+

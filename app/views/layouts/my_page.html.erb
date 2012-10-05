@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Harsha</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="page">
+<div id="header"></div>
+<div id="content">
+<%= yield %>
+</div>
+<div id="footer"></div>
+</div>
+</body>
+</html>
+
+<style>
+	#page{}
+	#header{height:100px;background:#999999;}
+	#content{color:#342;background:#CCCCCC;min-height:500px;}
+	#footer{height:50px;background:#999999;}
+</style>

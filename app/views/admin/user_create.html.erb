@@ -1,0 +1,16 @@
+<% unless flash[:notice].nil? %>
+<%= flash[:notice] %>
+<% end %>
+<br/>
+<h1>Wecome to Administrator,    <%= params[:name] %></h1>
+
+<h2>Create User</h2> 
+<%= form_for :admin ,:url => {:action => "user_create"} do |f| %>
+Name : <%= f.text_field :name %><br/>
+Email : <%= f.text_field :email %><br/>
+Password : <%= f.password_field :password %><br/>
+Select any Role : <%= f.select "role_id",options_for_select(@role.collect{|r| [r.name,r.id]} ),
+    {:prompt => "select role"} %><br/>
+</br/>
+<%= f.submit "save" %>
+<% end %>

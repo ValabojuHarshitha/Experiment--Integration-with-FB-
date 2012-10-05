@@ -1,0 +1,15 @@
+
+<% i=0 %>
+<table border="" style="width:500px;">
+<% IO.foreach("#{Rails.root}/public/users/#{@admin.name}.rb") do |b| %>
+<% d=b.split("   ")%>
+<tr>
+<% if i==0 %>
+  <th style="font-weight: bold;font-size: 15px;"><%= d[0] %></th><th><%= d[1]%></th>
+<% else %>
+ <td style="font-size: 12px;"><%= d[0] %></td><td><%= d[1]%></td>
+<% end %>
+<% i=i+1  %>
+</tr>
+<% end %>
+</table>

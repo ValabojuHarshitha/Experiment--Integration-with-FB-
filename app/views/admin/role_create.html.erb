@@ -1,0 +1,9 @@
+<% unless flash[:notice].nil? %>
+<%= flash[:notice] %>
+<% end %>
+<br/>
+<h2>Create Role</h2> 
+<%= form_for :role ,:url => {:action => "role_create"} do |f| %>
+<%= f.text_field :name %><br/></br/>
+<%= f.submit "save" %>
+<% end %>

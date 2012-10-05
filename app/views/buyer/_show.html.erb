@@ -1,0 +1,12 @@
+<table>
+	<tr>
+		<th>Name</th>
+	</tr>
+	<% @product.each do |product| %>
+	<tr>
+		<td><%= product.name %></td>
+	</tr>
+	<% end %>
+</table>
+
+<%= link_to "Go to cart" ,:controller => "buyer", :action => "cart_catalog" %>

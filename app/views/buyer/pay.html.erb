@@ -1,0 +1,13 @@
+<h3> Here is your receipt,Please click on the link for confirmation.</h3>
+
+ <a href='/buyer/print_receipt' id="rec"> Receipt </a>  
+<script type="text/javascript">
+
+	$("#rec").click(function(){		
+          $("#show_spinner").show();
+    });
+</script>
+
+<div id="show_spinner" style="display:none;margin-top:20px;">
+	<%= image_tag("loader2.gif")%>
+</div>

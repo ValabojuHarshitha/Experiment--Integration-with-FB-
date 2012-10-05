@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  quantity: MyString
+  product_id: 1
+  buyer_id: 1
+  seller_id: 1
+  total_price: 1
+  receipt_no: 1
+
+two:
+  quantity: MyString
+  product_id: 1
+  buyer_id: 1
+  seller_id: 1
+  total_price: 1
+  receipt_no: 1

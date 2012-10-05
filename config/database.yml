@@ -1,0 +1,8 @@
+development:
+  adapter: mysql
+  database: harsha(copy)
+  pool: 5
+  timeout: 5000
+  host: localhost
+  username: root
+  password: research

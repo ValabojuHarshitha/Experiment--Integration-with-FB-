@@ -1,0 +1,12 @@
+<% unless flash[:notice].nil? %>
+<%= flash[:notice] %>
+<% end %>
+<br/>
+<b>Sign in here </b>
+<br/>
+<%= form_for :signin ,:url => {:action =>"signin" } do |f| %>
+Name : <%= f.text_field :name %><br/>
+Password : <%= f.text_field :password %><br/>
+<%= f.submit "Signin"%><br/>
+<% end %>
+

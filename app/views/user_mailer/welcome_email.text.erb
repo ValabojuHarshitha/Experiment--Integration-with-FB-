@@ -1,0 +1,7 @@
+<%= @user.name %>
+
+
+<h1>Thanks for registring </h1>
+<h2>
+	Total price for the product <%= Product.find(@order.product_id).name %> is <%= @order.total_price %>
+</h2>

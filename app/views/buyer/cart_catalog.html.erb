@@ -1,0 +1,43 @@
+<div id="show-table" style="width:750px;margin:auto;">
+<table id="listing" border='' style="width:600px;">
+<tr id="tr-head" style="background-color:#D3D3D3;">
+<th>Product Name </th>
+<th>Price of the product</th>
+<th>Quantity</th>
+<th>Total Price</th>
+</tr>
+<!-- <%= form_for :cart ,:url => {},:remote => true do |f| %> -->
+<% @cart.each do |cart| %>
+<tr id="" style="background-color:#C0C0C0;">
+	<% p=Product.find(cart.product_id) %>
+	<td><%= p.name %></td>
+	<td><%= p.price %></td>
+	<td> 
+	   <% if cart.quantity %>
+		 <%= select "product","quantity", [1,2,3,4,5],{:selected=>cart.quantity} %>
+       <% else %>
+        <%= select "product","quantity", [1,2,3,4,5],{:prompt=>"Quantity"},
+       { :onchange => "$.ajax({url: '../buyer/display_total',
+       data: 'count=' + value + '&price=' + '#{p.price}' + '&cart=' + '#{cart.id}' })"}%>
+       <% end %>
+	</td>
+	<td id="total<%= cart.id%>">
+		<% if cart.total %>
+		<div id="total_price"> <%= cart.total %></div>
+		<% else %>
+		<div id="total_price"></div>
+		<% end %>
+		
+    </td>
+</tr>
+<% end %>
+<!-- <% end %> -->
+</table>
+</div>
+<br/>
+<br/>
+<%= link_to "Go to shopping",:controller=>"buyer",:action=>"catalog"%>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<%= link_to "Pay Receipt" ,:controller => "buyer" ,:action =>"pay"%>
+
+      

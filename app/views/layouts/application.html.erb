@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Experiment</title>
+		<%= stylesheet_link_tag    "application", :media => "all" %>
+		<%= javascript_include_tag "application" %>
+		<%= csrf_meta_tags %>
+	</head>
+	<body>
+		<div id="page">
+			<div id="header">
+				<div id="logout" style="width:400px;float:right;font-weight:bold;">
+
+					<div id="user_nav">
+						<% if current_user %>
+						Signed in as <strong><%= current_user.name %></strong>!
+						<%= link_to "Sign out", signout_path, :id => "sign_out" %>
+						<% else %>
+						<%= link_to "Sign in with Facebook", "/auth/facebook/", :id => "sign_in" %>
+						<% end %>
+					</div>
+
+					<!-- <%= link_to "logout",:controller => 'admin' ,:action => 'logout'%> -->
+					<a href='/admin/logout' style="float:right;margin-right:5px;font-size:15px;"> Logout </a>
+				</div>
+			</div>
+			<div id="content">
+				<div id="left-menu"></div>
+				<div id="sub-content">
+					<%= yield %>
+				</div>
+				<div id="right-menu"></div>
+			</div>
+
+			<div id="footer">
+
+			</div>
+		</div>
+	</body>
+</html>
+
+<style>
+	#page {
+		width: 1000px;
+		margin: auto;
+	}
+	#header {
+		height: 100px;
+		background: #999999;
+	}
+	#left-menu {
+		min-height: 500px;
+		width: 200px;
+		float: left;
+	}
+	#content {
+		color: #342;
+		background: #CCCCCC;
+		min-height: 500px;
+	}
+	#right-menu {
+		min-height: 500px;
+		width: 200px;
+		float: left
+	}
+	#sub-content {
+		min-height: 500px;
+		width: 600px;
+		float: left
+	}
+	#footer {
+		height: 50px;
+		background: #999999;
+	}
+</style>
